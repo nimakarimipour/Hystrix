@@ -10,11 +10,11 @@ buildscript {
         classpath 'com.netflix.nebula:nebula-clojure-plugin:4.0.1'
     }
 }
-apply plugin: 'nebula.clojure' // this is a wrapper around clojuresque to make it behave well with other plugins
+//apply plugin: 'nebula.clojure' // this is a wrapper around clojuresque to make it behave well with other plugins
 
 repositories {
     mavenCentral()
-    clojarsRepo()
+//    clojarsRepo()
 }
 
 dependencies {
@@ -40,15 +40,15 @@ eclipse {
 def nreplPort = 9999 // hardcoding to 9999 until figuring out how to make this not break Eclipse project import when the property isn't defined
 configurations { nrepl }
 dependencies { nrepl 'org.clojure:tools.nrepl:0.2.1' }
-task nrepl(type: JavaExec) {
-    classpath configurations.nrepl.asPath,
-              project.sourceSets.main.clojure.srcDirs,
-              project.sourceSets.test.clojure.srcDirs,
-              sourceSets.main.runtimeClasspath
-    main = "clojure.main"
-    args '--eval', "(ns gradle-nrepl (:require [clojure.tools.nrepl.server :refer (start-server stop-server)]))",
-        '--eval', "(println \"Starting nrepl server on port $nreplPort\")",
-        '--eval', "(def server (start-server :port $nreplPort))"
-}
+//task nrepl(type: JavaExec) {
+//    classpath configurations.nrepl.asPath,
+//              project.sourceSets.main.clojure.srcDirs,
+//              project.sourceSets.test.clojure.srcDirs,
+//              sourceSets.main.runtimeClasspath
+//    main = "clojure.main"
+//    args '--eval', "(ns gradle-nrepl (:require [clojure.tools.nrepl.server :refer (start-server stop-server)]))",
+//        '--eval', "(println \"Starting nrepl server on port $nreplPort\")",
+//        '--eval', "(def server (start-server :port $nreplPort))"
+//}
 
 // vim:ft=groovy

@@ -1,4 +1,4 @@
-apply plugin: 'osgi'
+//apply plugin: 'osgi'
 
 configurations {
     ajtools
@@ -67,16 +67,16 @@ compileAjcJava {
     }
 }
 
-task ajcTest(type: Test) {
-    testClassesDir = sourceSets.ajcTest.output.classesDir
-    classpath = sourceSets.ajcTest.runtimeClasspath
-    if (System.getProperty('DEBUG', 'false') == 'true') {
-        jvmArgs '-Xdebug',
-                '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9009'
-    }
-}
+//task ajcTest(type: Test) {
+//    testClassesDir = sourceSets.ajcTest.output.classesDir
+//    classpath = sourceSets.ajcTest.runtimeClasspath
+//    if (System.getProperty('DEBUG', 'false') == 'true') {
+//        jvmArgs '-Xdebug',
+//                '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9009'
+//    }
+//}
 
-check.dependsOn test, ajcTest
+//check.dependsOn test, ajcTest
 
 
 ext {
